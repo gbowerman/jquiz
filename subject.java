@@ -8,6 +8,7 @@ public class subject {
     ArrayList<String> answers;
     Random ran = new Random();
     int nextQuestion = 0;
+    boolean deleteMode = true;
 
     public subject(String title) {
         this.title = title;

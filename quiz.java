@@ -1,9 +1,8 @@
 
 // quiz.java
 // to do:
-//  - Elimination mode - removes questions after correct answers
 //  - Select subject
-//  - figure out how to do it with Spring Boot framework
+//  - make a web app
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -11,14 +10,14 @@ import java.io.FileReader;
 import java.awt.event.ActionEvent;
 
 public class quiz {
-    // game state variables and UI components
+    // game state variables and dynamic UI components
     static int score = 0;
     static int qCount = 0;
     static subject quizInstance = null;
-    static JLabel questionLabel = new JLabel("          ");
-    static JLabel scoreLabel = new JLabel("   ");
+    static JLabel questionLabel = new JLabel("");
+    static JLabel scoreLabel = new JLabel("");
     static JPanel statusPanel = new JPanel();
-    static JLabel statusLabel = new JLabel("                     ");
+    static JLabel statusLabel = new JLabel("");
 
     public static void main(String[] args) {
         // open the quiz file
@@ -30,11 +29,11 @@ public class quiz {
             quizTitle = buffer.readLine();
             // initialize a new quiz
             quizInstance = new subject(quizTitle);
-            
+
             // load the questions & answers
             String qaLine = "";
             while ((qaLine = buffer.readLine()) != null) {
-                //System.out.println(qaLine);
+                // System.out.println(qaLine);
                 String[] qa = qaLine.split("\\|");
                 quizInstance.addQA(qa[0], qa[1]);
             }
@@ -48,7 +47,7 @@ public class quiz {
         // initialize the GUI objects
         JFrame frame = createAppFrame(640, 200);
 
-        // Create 3 JPanel objects
+        // Create 3 JPanel objects = header, quiz, status
         JPanel headerPanel = createHeaderPanel(quizTitle);
         JPanel quizPanel = createQuizPanel();
         setStatusPanel();
@@ -66,6 +65,11 @@ public class quiz {
         questionLabel.setText(nextQuestion);
     }
 
+    /**
+     * evaluate() - the main question/answer evaluation method
+     * 
+     * @param responseField
+     */
     static void evaluate(JTextField responseField) {
         String answer = quizInstance.getAnswer();
         String response = responseField.getText();
@@ -73,14 +77,29 @@ public class quiz {
             score++;
             statusPanel.setBackground(Color.green);
             statusLabel.setText("Correct");
+            // if delete mode is on, remove the question
+            if (quizInstance.deleteMode == true) {
+                quizInstance.delQuestion(quizInstance.nextQuestion);
+            }
         } else {
             statusPanel.setBackground(Color.orange);
             statusLabel.setText("Answer is " + answer);
             System.out.printf("\nanswer:%s,response:%s.", answer, response);
         }
         qCount++;
-        scoreLabel.setText(score + "/" + qCount + " " + 100 * score / qCount + "%");
+        int scorePercent = 100 * score / qCount;
+        scoreLabel.setText(score + "/" + qCount + " " + scorePercent + "%");
         responseField.setText("");
+        if (quizInstance.deleteMode == true) {
+            // if no more questions left, end the quiz
+            if (quizInstance.quizLength() == 0) {
+                // show a dialog box with the score
+                questionLabel.setText("Game over");
+                JOptionPane.showMessageDialog(null, "You scored " + score + "/" + qCount + " (" + scorePercent + "%)",
+                        "End of quiz", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            }
+        }
         String nextQuestion = quizInstance.getQuestion();
         questionLabel.setText(nextQuestion);
     }
@@ -97,15 +116,36 @@ public class quiz {
     }
 
     // create and initialize the head panel
+    /**
+     * @param title
+     * @return
+     */
     static JPanel createHeaderPanel(String title) {
         JPanel panel = new JPanel();
-        panel.setBackground(Color.cyan);
+        panel.setBackground(Color.lightGray);
         panel.setLayout(new BorderLayout());
         JLabel titleLabel = new JLabel();
         titleLabel.setFont(new Font("Serif", Font.BOLD, 20));
-        titleLabel.setText(title);
-        panel.add(titleLabel, BorderLayout.CENTER);
-        panel.add(scoreLabel, BorderLayout.EAST);
+        titleLabel.setText(title + "      ");
+        // GUI components for delete mode
+        JCheckBox deleteMode = new JCheckBox("Delete mode");
+        // set the checkbox as selected by default
+        deleteMode.setSelected(true);
+        Action deleteAction = new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                if (deleteMode.isSelected()) {
+                    quizInstance.deleteMode = true;
+                } else {
+                    quizInstance.deleteMode = false;
+                }
+            }
+        };
+        deleteMode.addActionListener(deleteAction);
+        deleteMode.setBackground(Color.lightGray);
+
+        panel.add(scoreLabel, BorderLayout.CENTER);
+        panel.add(titleLabel, BorderLayout.WEST);
+        panel.add(deleteMode, BorderLayout.EAST);
         scoreLabel.setFont(new Font("Serif", Font.BOLD, 20));
         return panel;
     }
@@ -135,7 +175,7 @@ public class quiz {
 
     // create a footer panel for status
     static void setStatusPanel() {
-        statusPanel.setBackground(Color.yellow);
+        statusPanel.setBackground(Color.lightGray);
         statusPanel.setLayout(new BorderLayout());
         statusPanel.add(statusLabel, BorderLayout.WEST);
         statusLabel.setFont(new Font("Serif", Font.BOLD, 20));
