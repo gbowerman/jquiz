@@ -1,5 +1,4 @@
-
-// quiz.java
+// quiz.java - quiz based tool to learn facts in a question/answer format
 // to do:
 //  - Select subject
 //  - make a web app
@@ -11,13 +10,14 @@ import java.awt.event.ActionEvent;
 
 public class quiz {
     // game state variables and dynamic UI components
-    static int score = 0;
-    static int qCount = 0;
+    static int score = 0; // number of correct answers
+    static int qCount = 0; // number of questions asked
     static subject quizInstance = null;
     static JLabel questionLabel = new JLabel("");
     static JLabel scoreLabel = new JLabel("");
     static JPanel statusPanel = new JPanel();
     static JLabel statusLabel = new JLabel("");
+    static JTextField answerField = new JTextField(32);
 
     public static void main(String[] args) {
         // open the quiz file
@@ -45,7 +45,7 @@ public class quiz {
         }
 
         // initialize the GUI objects
-        JFrame frame = createAppFrame(640, 200);
+        JFrame frame = createAppFrame(640, 170);
 
         // Create 3 JPanel objects = header, quiz, status
         JPanel headerPanel = createHeaderPanel(quizTitle);
@@ -59,10 +59,12 @@ public class quiz {
 
         // Make the frame visible
         frame.setVisible(true);
+        // set focus to the answer field
+        answerField.requestFocusInWindow();
 
         // start quiz
         String nextQuestion = quizInstance.getQuestion();
-        questionLabel.setText(nextQuestion);
+        questionLabel.setText(nextQuestion);        
     }
 
     /**
@@ -143,19 +145,18 @@ public class quiz {
         deleteMode.addActionListener(deleteAction);
         deleteMode.setBackground(Color.lightGray);
 
-        panel.add(scoreLabel, BorderLayout.CENTER);
         panel.add(titleLabel, BorderLayout.WEST);
         panel.add(deleteMode, BorderLayout.EAST);
         scoreLabel.setFont(new Font("Serif", Font.BOLD, 20));
         return panel;
     }
 
-    // create and initialize the main quick panel
+    // create and initialize the main quiz panel
     static JPanel createQuizPanel() {
         JPanel panel = new JPanel();
         panel.setBackground(Color.white);
-        panel.setLayout(new BorderLayout());
-        JTextField answerField = new JTextField(20);
+        SpringLayout layout = new SpringLayout();  
+        panel.setLayout(layout);
         answerField.setFont(new Font("Serif", Font.BOLD, 20));
         Action action = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
@@ -164,12 +165,21 @@ public class quiz {
         };
         answerField.addActionListener(action);
         questionLabel.setFont(new Font("Serif", Font.BOLD, 20));
-        panel.add(questionLabel, BorderLayout.WEST);
-        panel.add(answerField, BorderLayout.SOUTH);
         JButton enterButton = new JButton("Enter");
         enterButton.setFont(new Font("Serif", Font.BOLD, 20));
+        // set the height of the button
+        enterButton.setPreferredSize(new Dimension(90, 30));
         enterButton.addActionListener(action);
-        panel.add(enterButton, BorderLayout.EAST);
+        panel.add(questionLabel);
+        panel.add(answerField);
+        panel.add(enterButton);
+        layout.putConstraint(SpringLayout.WEST, questionLabel,6,SpringLayout.WEST, panel);  
+        layout.putConstraint(SpringLayout.NORTH, questionLabel,6,SpringLayout.NORTH, panel);  
+        layout.putConstraint(SpringLayout.WEST, answerField,6,SpringLayout.WEST, panel);  
+        layout.putConstraint(SpringLayout.NORTH, answerField,6,SpringLayout.SOUTH, questionLabel);  
+        layout.putConstraint(SpringLayout.WEST, enterButton,6,SpringLayout.EAST, answerField);  
+        layout.putConstraint(SpringLayout.NORTH, enterButton,6,SpringLayout.SOUTH, questionLabel);  
+
         return panel;
     }
 
@@ -179,5 +189,6 @@ public class quiz {
         statusPanel.setLayout(new BorderLayout());
         statusPanel.add(statusLabel, BorderLayout.WEST);
         statusLabel.setFont(new Font("Serif", Font.BOLD, 20));
+        statusPanel.add(scoreLabel, BorderLayout.EAST);
     }
 }
