@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
 import java.awt.event.ActionEvent;
 
 public class quiz {
@@ -24,7 +25,7 @@ public class quiz {
         FileReader quizFile = null;
         String quizTitle = "";
         try {
-            quizFile = new FileReader("quiz.txt");
+            quizFile = new FileReader("quiz.txt", StandardCharsets.UTF_8);
             BufferedReader buffer = new BufferedReader(quizFile);
             quizTitle = buffer.readLine();
             // initialize a new quiz
