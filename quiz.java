@@ -4,46 +4,23 @@
 //  - make a web app
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.nio.charset.StandardCharsets;
 import java.awt.event.ActionEvent;
 
 public class quiz {
-    // game state variables and dynamic UI components
-    static int score = 0; // number of correct answers
-    static int qCount = 0; // number of questions asked
-    static subject quizInstance = null;
-    static JLabel questionLabel = new JLabel("");
-    static JLabel scoreLabel = new JLabel("");
-    static JPanel statusPanel = new JPanel();
-    static JLabel statusLabel = new JLabel("");
-    static JTextField answerField = new JTextField(32);
+        // game state variables and dynamic UI components
+        static int score = 0; // number of correct answers
+        static int qCount = 0; // number of questions asked
+        static subject quizInstance = null;
+        static JLabel questionLabel = new JLabel("");
+        static JLabel scoreLabel = new JLabel("");
+        static JPanel statusPanel = new JPanel();
+        static JLabel statusLabel = new JLabel("");
+        static JTextField answerField = new JTextField(32);
 
     public static void main(String[] args) {
-        // open the quiz file
-        FileReader quizFile = null;
-        String quizTitle = "";
-        try {
-            quizFile = new FileReader("quiz.txt", StandardCharsets.UTF_8);
-            BufferedReader buffer = new BufferedReader(quizFile);
-            quizTitle = buffer.readLine();
-            // initialize a new quiz
-            quizInstance = new subject(quizTitle);
-
-            // load the questions & answers
-            String qaLine = "";
-            while ((qaLine = buffer.readLine()) != null) {
-                // System.out.println(qaLine);
-                String[] qa = qaLine.split("\\|");
-                quizInstance.addQA(qa[0], qa[1]);
-            }
-            buffer.close();
-            quizFile.close();
-        } catch (Exception e) {
-            System.out.println("File not found.");
-            System.exit(0);
-        }
+        // initialize the quiz
+        quizInstance = new subject("quiz.txt");
+        String quizTitle = quizInstance.getTitle();
 
         // initialize the GUI objects
         JFrame frame = createAppFrame(640, 170);
@@ -81,8 +58,8 @@ public class quiz {
             statusPanel.setBackground(Color.green);
             statusLabel.setText("Correct");
             // if delete mode is on, remove the question
-            if (quizInstance.deleteMode == true) {
-                quizInstance.delQuestion(quizInstance.nextQuestion);
+            if (quizInstance.getDeleteMode() == true) {
+                quizInstance.delQuestion();
             }
         } else {
             statusPanel.setBackground(Color.orange);
@@ -93,7 +70,7 @@ public class quiz {
         int scorePercent = 100 * score / qCount;
         scoreLabel.setText(score + "/" + qCount + " " + scorePercent + "%");
         responseField.setText("");
-        if (quizInstance.deleteMode == true) {
+        if (quizInstance.getDeleteMode() == true) {
             // if no more questions left, end the quiz
             if (quizInstance.quizLength() == 0) {
                 // show a dialog box with the score
@@ -137,9 +114,9 @@ public class quiz {
         Action deleteAction = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 if (deleteMode.isSelected()) {
-                    quizInstance.deleteMode = true;
+                    quizInstance.setDeleteMode(true);
                 } else {
-                    quizInstance.deleteMode = false;
+                    quizInstance.setDeleteMode(false);
                 }
             }
         };
