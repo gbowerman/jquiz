@@ -1,23 +1,11 @@
 package com.guytest;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.azure.ai.openai.OpenAIClient;
-import com.azure.ai.openai.OpenAIClientBuilder;
-import com.azure.ai.openai.models.Choice;
-import com.azure.ai.openai.models.CompletionsOptions;
-import com.azure.core.credential.AzureKeyCredential;
-// import library to use .env file
-import io.github.cdimascio.dotenv.Dotenv;
-
-import com.azure.ai.openai.models.Completions;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Guy open-ai test program
+ * Quiz program with Azure openai Info button
  *
  */
 public class App {
