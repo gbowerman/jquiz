@@ -1,13 +1,16 @@
+/**
+ * quiz-ai -
+ * Question/answer based learning aid in quiz program format
+ * Includes Azure OpenAI Info button for ehnanced learning
+ * @author Guy Bowerman
+ * @date 6/13/23
+ */
 package com.guytest;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-/**
- * Quiz program with Azure openai Info button
- *
- */
 public class App {
     // game state variables and dynamic UI components
     static int score = 0; // number of correct answers
