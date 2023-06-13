@@ -9,7 +9,7 @@ What does D.C. in Washington, D.C., mean?|District of Columbia
 How many states are in the Union?|50
 What is celebrated on July 4?|Independence Day
 What great river divides the United States from north to south?|Mississippi
-What was the Boston Tea Party?|a protest against the tax on tea
+What was the Boston Tea Party?|protest against the tax on tea
 What happened on July 4, 1776?|Declaration of Independence
 Who was the first President of the United States?|George Washington
 Who is the President of the United States today?|Joseph Robinette Biden Jr
@@ -30,7 +30,7 @@ What two chambers make up Congress?|House of Representatives and the Senate
 How long is a senators term?|6 years
 How many senators are there?|100
 Who are the senators from your state?|Maria Cantwell and Patty Murray
-What is a bill?|A proposal for a new law
+What is a bill?|Proposal for a new law
 How many representatives are there in the House?|435
 For how many years is a representative to the House elected?|2
 What branch of government does the President head?|Executive
@@ -84,7 +84,7 @@ How did the cotton gin help cotton planters?|Doubled the cotton yield
 Where does Congress meet?|Capitol
 What is an amendment?|Change to the Constitution
 Who is the commander-in-chief of the armed forces?|President
-Who cannot become President of the United States?|A person born outside the United States
+Who cannot become President of the United States?|Person born outside the United States
 Where can you find the right of freedom of religion?|Bill of Rights
 Who meets in the U.S. Capitol?|Congress
 What is a war president?|president during wartime
@@ -99,3 +99,55 @@ How many times can a senator be reelected?|Innumerable
 How many times can a representative be reelected?|Innumerable
 What are the two major political parties in America?|Democrats and Republicans
 What two regions fought during the Civil War?|North and South
+What does the Constitution do?|Defines the government and protects basic rights of Americans
+The idea of self-government is in the first three words of the Constitution. What are these words?|We the People
+What is one right or freedom from the First Amendment?|speech
+What did the Declaration of Independence do?|Announced our independence from Great Britain
+What are 3 rights in the Declaration of Independence?|life, liberty, pursuit of happiness
+What is freedom of religion?|You can practice any religion, or not practice a religion
+What is the economic system in the United States?|market economy
+What is the "rule of law"?|Everyone must follow the law, no one is above the law
+Name one branch or part of the government|Congress
+What stops one branch of government from becoming too powerful?|checks and balances, separation of powers
+Who makes federal laws?|Congress
+Who does a U.S. Senator represent?|All people of the state
+Why do some states have more Representatives than other states?|population
+We elect a President for how many years?|4
+What are two Cabinet-level positions?|Secretary of Defense, Secretary of Education
+What does the judicial branch do?|decides if a law goes against the Constitution
+Under our Constitution, some powers belong to the federal government. What are 2 powers of the federal government?|print money, declare war
+What is the political party of the President now?|Democratic party
+What is the name of the Speaker of the House of Representatives now?|Kevin McCarthy
+There are four amendments to the Constitution about who can vote. Describe one of them|Any citizen can vote
+What is one responsibility that is only for United States citizens?|serve on a jury
+Name one right only for United States citizens|vote in a federal election
+What are two rights of everyone living in the United States?|freedom of religion, freedom of speech
+What do we show loyalty to when we say the Pledge of Allegiance?|United States, the flag
+What is one promise you make when you become a United States citizen?|defend the Constitution and laws of the United States
+How old do citizens have to be to vote for President?|18
+What are two ways that Americans can participate in their democracy?|vote, run for office
+When is the last day you can send in federal income tax forms?|April 15
+When must all men register for the Selective Service?|between 18 and 26
+What is one reason colonists came to America?|freedom
+What group of people was taken to America and sold as slaves?|Africans
+Why did the colonists fight the British?|taxation without representation
+There were 13 original states. Name three|Virginia, North Carolina, South Carolina
+What happened at the Constitutional Convention?|Constitution was written
+When was the Constitution written?|1787
+The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers|Alexander Hamilton
+What is one thing Benjamin Franklin is famous for?|first Postmaster General of the United States
+What territory did the United States buy from France in 1803?|Louisiana
+Name one war fought by the United States in the 1800s|War of 1812
+Who was President during World War I?|Woodrow Wilson
+Who was President during the Great Depression and World War II?|Roosevelt
+Before he was President, Eisenhower was a general. What war was he in?|World War II
+During the Cold War, what was the main concern of the United States?|Communism
+What movement tried to end racial discrimination?|civil rights movement
+What did Martin Luther King, Jr. do?|fought for civil rights
+What major event happened on September 11, 2001, in the United States?|Terrorists attacked the United States
+Name one American Indian tribe in the United States|Apache
+Name one of the two longest rivers in the United States|Mississippi
+Name one U.S. territory|Puerto Rico
+Name one state that borders Canada|Vermont
+Where is the Statue of Liberty?|New York Harbor
+Name two national U.S. holidays|Thanksgiving, Christmas
