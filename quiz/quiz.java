@@ -53,7 +53,7 @@ public class quiz {
     static void evaluate(JTextField responseField) {
         String answer = quizInstance.getAnswer();
         String response = responseField.getText();
-        if (answer.equalsIgnoreCase(response)) {
+        if (answer.equalsIgnoreCase(response)) { // right answer
             score++;
             statusPanel.setBackground(Color.green);
             statusLabel.setText("Correct");
@@ -61,7 +61,7 @@ public class quiz {
             if (quizInstance.getDeleteMode() == true) {
                 quizInstance.delQuestion();
             }
-        } else {
+        } else { // wrong answer
             statusPanel.setBackground(Color.orange);
             statusLabel.setText("Answer is " + answer);
             System.out.printf("\nanswer:%s,response:%s.", answer, response);

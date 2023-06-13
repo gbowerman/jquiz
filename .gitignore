@@ -8,3 +8,16 @@
 /subject.class
 /us_flag.ico
 /whitehouse.ico
+quiz-ai/.env
+quiz-ai/target/classes/com/guytest/App.class
+quiz-ai/target/classes/com/guytest/App$1.class
+quiz-ai/target/classes/com/guytest/App$2.class
+quiz-ai/target/classes/com/guytest/App$3.class
+quiz-ai/target/classes/com/guytest/quizailib.class
+quiz-ai/target/classes/com/guytest/subject.class
+quiz-ai/target/test-classes/com/guytest/AppTest.class
+quiz/subject.class
+quiz/quiz$3.class
+quiz/quiz$2.class
+quiz/quiz$1.class
+quiz/quiz.class
