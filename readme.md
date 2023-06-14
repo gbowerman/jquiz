@@ -1,6 +1,6 @@
 # Quiz - learning tools 
 
-Question/answer based learning tools in quiz program format. Available in two formats:
+Java question/answer based learning tools in quiz program style. Available in two formats:
 
 1. _[Quiz](./quiz)_ - simple Java Swing quiz program to help with memorization - loads a text-based question/answer file covering any subject
 
