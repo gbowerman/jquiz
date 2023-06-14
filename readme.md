@@ -1,11 +1,11 @@
-# Quiz - AI 
+# Quiz - learning tools 
 
-A question/answer based learning tool in quiz program format. Available in two formats:
+Question/answer based learning tools in quiz program format. Available in two formats:
 
-1. Quiz - simple Java Swing quiz program to help with memorization - loads text-based question/answer files
+1. _Quiz_ - simple Java Swing quiz program to help with memorization - loads a text-based question/answer file covering any subject
 
-![](./img/quiz2023-06-13.png)
+   ![](./img/quiz2023-06-13.png)
 
-2. Quiz that Includes an Azure OpenAI Info button for ehnanced learning
+2. _Quiz-AI_ - Includes an Azure OpenAI Info button for ehnanced learning
 
-![](./img/quiz-AI-2023-06-13.png)
+   ![](./img/quiz-AI-2023-06-13.png)
