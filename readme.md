@@ -6,6 +6,6 @@ Java question/answer based learning tools in quiz program style. Available in tw
 
    ![](./img/quiz2023-06-13.png)
 
-2. _[Quiz-AI](./quiz-ai)_ - Includes an Azure OpenAI Info button for ehnanced learning
+2. _[Quiz-AI](./quiz-ai)_ - Includes an Azure OpenAI Info button for enhanced learning
 
    ![](./img/quiz-AI-2023-06-13.png)
