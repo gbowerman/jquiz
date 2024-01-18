@@ -1,4 +1,4 @@
-# Quiz - learning tools 
+# JQuiz - learning tools 
 
 Java question/answer based learning tools in quiz program style. Available in two formats:
 
